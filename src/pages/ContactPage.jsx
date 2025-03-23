@@ -71,9 +71,9 @@ const ContactPage = () => {
   
   // Social media links
   const socialLinks = [
-    { name: 'GitHub', url: 'https://github.com/yourusername', icon: 'GitHub' },
+    { name: 'GitHub', url: 'https://github.com/GhostMods00', icon: 'GitHub' },
     { name: 'LinkedIn', url: 'https://linkedin.com/in/yourusername', icon: 'LinkedIn' },
-    { name: 'Twitter', url: 'https://twitter.com/yourusername', icon: 'Twitter' },
+    { name: 'X', url: 'https://x.com/O_zee9', icon: 'X' },
     { name: 'CodePen', url: 'https://codepen.io/yourusername', icon: 'CodePen' }
   ];
 
@@ -204,7 +204,7 @@ const ContactPage = () => {
                   <div className="space-y-4">
                     <div>
                       <h4 className="text-sm font-mono text-gray-400 mb-1">EMAIL</h4>
-                      <p className="text-gray-300">westendcrew1982@example.com</p>
+                      <p className="text-gray-300">westendcrew1982@gmail.com</p>
                     </div>
                     
                     <div>

@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import GlitchText from '../components/GlitchText';
 import CyberButton from '../components/CyberButton';
-
+import project1Image from '../assets/images/projects/project1.jpg';
+import project2Image from '../assets/images/projects/project2.jpg';
+import project3Image from '../assets/images/projects/project3.jpg';
+import project4Image from '../assets/images/projects/project4.jpg';
+import project5Image from '../assets/images/projects/project5.jpg';
+import project6Image from '../assets/images/projects/project6.jpg';
 const ProjectsPage = () => {
   // State to track the active filter
   const [activeFilter, setActiveFilter] = useState('all');
@@ -11,68 +16,67 @@ const ProjectsPage = () => {
   const projectsData = [
     {
       id: 1,
-      title: "Crypto Dashboard",
-      description: "Interactive dashboard for tracking cryptocurrency prices and portfolio performance with real-time updates.",
-      image: "/images/project-placeholder.jpg", // Replace with your project image
-      technologies: ["React", "Node.js", "Chart.js", "API Integration"],
-      category: "frontend",
-      demoLink: "https://example.com",
-      codeLink: "https://github.com/yourusername/project-repo",
+      title: "Property Care",
+      description: "PropertyCare is a robust web application that revolutionizes property maintenance management. It provides an intuitive platform for property managers to efficiently track maintenance requests, assign tasks to maintenance staff, and maintain clear communication with all stakeholders.",
+      image: project1Image, 
+      technologies: ["React", "Node.js", "React Router DOM", "Axios for API requests, Tailwind CSS, MongoDB"],
+      category: "fullstack",
+      demoLink: "https://propertycare-1.onrender.com",
+      codeLink: "https://github.com/GhostMods00/PropertyCare",
       featured: true
     },
     {
       id: 2,
-      title: "E-Commerce Platform",
-      description: "Full-stack e-commerce solution with user authentication, product management, and payment processing.",
-      image: "/images/project-placeholder.jpg",
-      technologies: ["MongoDB", "Express", "React", "Node.js"],
-      category: "fullstack",
-      demoLink: "https://example.com",
-      codeLink: "https://github.com/yourusername/project-repo",
-      featured: true
-    },
-    {
-      id: 3,
-      title: "Task Management API",
-      description: "RESTful API for task management with authentication, authorization, and comprehensive documentation.",
-      image: "/images/project-placeholder.jpg",
-      technologies: ["Node.js", "Express", "MongoDB", "JWT"],
-      category: "backend",
-      demoLink: "https://example.com",
-      codeLink: "https://github.com/yourusername/project-repo",
+      title: "Business Website",
+      description: "A business website for a accounting company. The website features a landing page, services page, contact form, and responsive design.",
+      image: project2Image,
+      technologies: ["Tailwind", "React", "Node.js"],
+      category: "frontend",
+      demoLink: "https://www.primebalanceadvisory.com/",
       featured: false
     },
     {
+      id: 3,
+      title: "TaskMasterPro",
+      description: "A modern, feature-rich project management application built with React, Node.js, Express, and PostgreSQL. TaskMaster Pro helps teams collaborate efficiently, manage projects seamlessly, and boost productivity.",
+      image: project3Image,
+      technologies: ["Node.js", "Express", "postgres", "JWT"],
+      category: "fullstack",
+      demoLink: "https://taskmasterpro2.onrender.com/",
+      codeLink: "https://github.com/GhostMods00/TaskMasterPro",
+      featured: true
+    },
+    {
       id: 4,
-      title: "Weather App",
-      description: "Weather application featuring location detection, 5-day forecasts, and interactive maps.",
-      image: "/images/project-placeholder.jpg",
-      technologies: ["JavaScript", "HTML", "CSS", "Weather API"],
-      category: "frontend",
-      demoLink: "https://example.com",
-      codeLink: "https://github.com/yourusername/project-repo",
+      title: "DevRadar",
+      description: "Weather application featuring location detection, 5-day forecasts, and interactiA sophisticated GitHub talent acquisition platform built with modern web technologies. Streamline your technical recruitment process by discovering, evaluating, and managing potential developer candidates through GitHub profiles. 🚀ve maps.",
+      image: project4Image,
+      technologies: ["React", "Typescript", "TailwindCSS", "Github API"],
+      category: "backend",
+      demoLink: "https://devradar-pe79.onrender.com/",
+      codeLink: "https://github.com/GhostMods00/DEVRadar",
       featured: false
     },
     {
       id: 5,
-      title: "Blog Platform",
-      description: "Content management system with markdown support, user roles, and commenting functionality.",
-      image: "/images/project-placeholder.jpg",
-      technologies: ["React", "Node.js", "PostgreSQL", "Express"],
-      category: "fullstack",
-      demoLink: "https://example.com",
-      codeLink: "https://github.com/yourusername/project-repo",
+      title: "CookWise",
+      description: "CookWise is a smart recipe-finding application designed to help users discover the perfect dish based on the ingredients they have at home and their dietary preferences",
+      image: project5Image,
+      technologies: ["Javascript", "CSS", "Bootstrap", "Html"],
+      category: "frontend",
+      demoLink: "https://algomystique.github.io/CookWiseGroupProject_1/",
+      codeLink: "https://github.com/AlgoMystique/CookWiseGroupProject_1",
       featured: false
     },
     {
       id: 6,
-      title: "Data Visualization Dashboard",
-      description: "Interactive dashboard for visualizing complex datasets with filtering and export capabilities.",
-      image: "/images/project-placeholder.jpg",
-      technologies: ["D3.js", "React", "CSS Grid", "RESTful APIs"],
-      category: "frontend",
-      demoLink: "https://example.com",
-      codeLink: "https://github.com/yourusername/project-repo",
+      title: "CI/CD Pipeline Implementation with GitHub Actions 🚀",
+      description: "A demonstration of implementing a robust CI/CD pipeline using GitHub Actions for a full-stack TypeScript application. The pipeline automates testing and deployment processes for a Quiz application built with React, Express, and MongoDB.",
+      image: project6Image,
+      technologies: ["Github Actions", "Render Deployment", "Express"],
+      category: "backend",
+      demoLink: "https://github.com/GhostMods00/pipeline-pilot/actions/workflows/test.yml",
+      codeLink: "https://github.com/GhostMods00/pipeline-pilot",
       featured: true
     }
   ];
