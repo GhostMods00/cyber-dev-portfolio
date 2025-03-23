@@ -3,10 +3,25 @@ import { motion } from 'framer-motion';
 import Terminal from './Terminal';
 import GlitchText from './GlitchText';
 import CyberButton from './CyberButton';
-
+import TextScramble from './TextScramble';
 const HeroSection = () => {
   const [terminalComplete, setTerminalComplete] = useState(false);
   const [showButtons, setShowButtons] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  
+  // Check if mobile based on screen width
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Initial check
+    checkMobile();
+    
+    // Listen for resize
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
   
   // Terminal commands simulation
   const commands = [
@@ -17,7 +32,14 @@ const HeroSection = () => {
     "echo 'Cybersecurity protocols engaged'",
     "establishing secure connection...",
     "connection established",
-    "echo 'Portfolio Access Granted.'"
+    "echo 'Portfolio Access has been granted.'"
+  ];
+  
+  // Simple commands for mobile to save space
+  const mobileCommands = [
+    "sudo access --Waleed's portfolio",
+    "loading...",
+    "echo 'Portfolio Access has been granted.'"
   ];
   
   // Show buttons after terminal animation completes
@@ -44,14 +66,15 @@ const HeroSection = () => {
       
       {/* Main content container */}
       <div className="container mx-auto max-w-7xl z-10 relative">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
-          {/* Left side: Text content */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 items-center">
+          {/* Text content - For mobile, this goes first */}
           <motion.div 
-            className="lg:col-span-2 text-center lg:text-left"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+            className="md:col-span-1 lg:col-span-2 text-center md:text-left order-2 md:order-1"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
+
             <div className="mb-6 inline-block">
               <GlitchText 
                 text="<FULL STACK DEVELOPER/>" 
@@ -61,11 +84,14 @@ const HeroSection = () => {
               />
             </div>
             
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-mono mb-4 text-white">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-mono mb-4 text-white">
               <span>THINK.</span> <span className="text-neon-green">BUILD.</span> <span className="text-cyber-blue">CREATE.</span>
             </h1>
+
+         
+
             
-            <p className="text-gray-300 text-lg mb-8 max-w-xl mx-auto lg:mx-0">
+            <p className="text-gray-300 text-base sm:text-lg mb-6 md:mb-8 max-w-xl mx-auto md:mx-0">
               Full-stack developer with a passion for creating 
               <span className="text-neon-green"> secure</span>, 
               <span className="text-cyber-blue"> efficient</span>, and 
@@ -75,14 +101,14 @@ const HeroSection = () => {
             {/* Animated buttons */}
             {showButtons && (
               <motion.div 
-                className="flex flex-wrap gap-4 justify-center lg:justify-start"
+                className="flex flex-wrap gap-4 justify-center md:justify-start"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
               >
                 <CyberButton 
                   color="green" 
-                  size="lg" 
+                  size={isMobile ? "md" : "lg"}
                   href="#projects"
                 >
                   VIEW PROJECTS
@@ -90,7 +116,7 @@ const HeroSection = () => {
                 
                 <CyberButton 
                   color="blue" 
-                  size="lg" 
+                  size={isMobile ? "md" : "lg"}
                   href="#about"
                 >
                   ABOUT ME
@@ -99,35 +125,40 @@ const HeroSection = () => {
             )}
           </motion.div>
           
-          {/* Right side: Terminal */}
+          {/* Terminal - For mobile, this goes second */}
           <motion.div 
-            className="lg:col-span-3"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
+            className="md:col-span-1 lg:col-span-3 order-1 md:order-2 mb-8 md:mb-0"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <div className="relative">
-              {/* Decorative elements */}
-              <div className="absolute -top-4 -left-4 w-12 h-12 border border-neon-green opacity-70"></div>
-              <div className="absolute -bottom-4 -right-4 w-12 h-12 border border-cyber-blue opacity-70"></div>
+              {/* Decorative elements - hidden on small screens */}
+              <div className="absolute -top-4 -left-4 w-8 h-8 border border-neon-green opacity-70 hidden sm:block"></div>
+              <div className="absolute -bottom-4 -right-4 w-8 h-8 border border-cyber-blue opacity-70 hidden sm:block"></div>
               
               {/* Terminal window */}
               <Terminal 
-                commands={commands} 
+                commands={isMobile ? mobileCommands : commands} 
                 onComplete={() => setTerminalComplete(true)} 
+                typingSpeed={isMobile ? 70 : 50} // Speed up on mobile
               />
               
               {/* Animated tech stack text that appears after terminal completes */}
               {terminalComplete && (
                 <motion.div 
-                  className="mt-6 text-center text-xs sm:text-sm font-mono text-gray-400"
+                  className="mt-4 sm:mt-6 text-center text-xs sm:text-sm font-mono text-gray-400"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5, delay: 0.5 }}
                 >
                   <span className="text-neon-green">TECH STACK:</span> 
                   <span className="tracking-wider ml-2 text-gray-300">
-                    JAVASCRIPT • REACT • TYPESCRIPT • PYTHON • HTML • CSS • MONGODB • POSTGRESQL • Git
+                    {isMobile ? (
+                      <>JS • TS • REACT • PYTHON</>
+                    ) : (
+                      <>HTML • CSS • TYPESCRIPT • PYTHON • JAVASCRIPT • REACT • MONGODB • POSTGRESQL • Git</>
+                    )}
                   </span>
                 </motion.div>
               )}
@@ -136,19 +167,15 @@ const HeroSection = () => {
         </div>
       </div>
       
-      {/* Decorative elements */}
-      <div className="absolute top-1/4 left-10 w-32 h-32 border border-neon-green opacity-10 rotate-45"></div>
-      <div className="absolute bottom-1/4 right-10 w-32 h-32 border border-cyber-blue opacity-10 rotate-12"></div>
-      
       {/* Scroll indicator */}
       <motion.div 
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center" 
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
-        <span className="text-gray-400 font-mono text-sm mb-2">SCROLL DOWN</span>
+        <span className="text-gray-400 font-mono text-xs sm:text-sm mb-2">SCROLL DOWN</span>
         <svg 
-          className="w-6 h-6 text-neon-green" 
+          className="w-5 h-5 sm:w-6 sm:h-6 text-neon-green" 
           fill="none" 
           stroke="currentColor" 
           viewBox="0 0 24 24" 
@@ -162,7 +189,26 @@ const HeroSection = () => {
           ></path>
         </svg>
       </motion.div>
+      <div className="mb-4">
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 0.8, delay: 0.1 }}
+    className="font-mono text-sm md:text-base text-cyber-blue mb-2"
+  >
+    <span className="text-neon-green">$</span> <TextScramble 
+      text={[
+        "I'M NOT A BUG...", 
+        "I'M A FEATURE!...",
+        "TRUST ME..."
+      ]} 
+      speed={30}
+    />
+  </motion.div>
+</div>
+
     </section>
+
   );
 };
 
