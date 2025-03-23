@@ -1,5 +1,6 @@
 import React from 'react';
 import './styles/index.css';
+import MatrixBackground from './components/MatrixBackground';
 
 // Components
 import Navbar from './components/Navbar';
@@ -14,6 +15,7 @@ import ContactPage from './pages/ContactPage';
 function App() {
   return (
     <div className="App bg-cyber-black min-h-screen crt">
+      <MatrixBackground opacity={0.05} density="low" speed="medium" />
       <Navbar />
       
       <main>

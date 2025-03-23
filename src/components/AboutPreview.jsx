@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import CyberButton from './CyberButton';
+import TextScramble from './TextScramble';
 import profileImage from '../assets/images/Profile.jpg';
 
 const AboutPreview = () => {
@@ -106,6 +107,30 @@ const AboutPreview = () => {
           </motion.div>
         </div>
       </div>
+      {/* Floating hacker text element */}
+<motion.div 
+  className="absolute -bottom-1 right-0 sm:right-5 transform -rotate-3 z-0 opacity-60"
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 0.6 }}
+  viewport={{ once: true }}
+  transition={{ duration: 1, delay: 0.8 }}
+>
+  <div className="bg-terminal-black border border-neon-green/30 p-3 font-mono text-xs sm:text-sm shadow-neon-green">
+    <TextScramble 
+      text={[
+        "01000011 01001111 01000100 01000101", 
+        "function hack() { return 'success'; }",
+        "</> Passion.drive(innovation);",
+        "while(alive) { keepCoding(); }",
+        "if(problem) { solveIt(); }" ,
+        "Don't Trust anyone();"
+      ]} 
+      speed={40}
+      className="text-neon-green"
+    />
+  </div>
+</motion.div>
+
     </section>
   );
 };
