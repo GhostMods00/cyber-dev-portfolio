@@ -74,7 +74,7 @@ const ContactPage = () => {
     { name: 'GitHub', url: 'https://github.com/GhostMods00', icon: 'GitHub' },
     { name: 'LinkedIn', url: 'https://linkedin.com/in/waleed-zaryab-79571517a', icon: 'LinkedIn' },
     { name: 'X', url: 'https://x.com/O_zee9', icon: 'X' },
-    { name: 'CodePen', url: 'https://codepen.io/yourusername', icon: 'CodePen' }
+    { name: 'CodePen', url: 'https://codepen.io/GhostMods00', icon: 'CodePen' }
   ];
 
   return (
