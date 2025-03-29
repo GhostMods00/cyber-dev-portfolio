@@ -99,7 +99,7 @@ const AboutPage = () => {
                 <div className="bg-terminal-black border border-cyber-pink/30 p-6 rounded-md shadow-neon-pink">
                   <div className="mb-6 border-b border-gray-700 pb-4">
                     <div className="flex justify-between items-start mb-2">
-                      <h3 className="text-lg font-mono text-cyber-pink">Full-Stack Web Development Bootcamp</h3>
+                      <h3 className="text-lg font-mono text-cyber-pink">Full-Stack Web Development Bootcamp From University of Sydney x edX</h3>
                       <span className="text-sm text-gray-400">2024</span>
                     </div>
                     <p className="text-gray-300 text-sm">
