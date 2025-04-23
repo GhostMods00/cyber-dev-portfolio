@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import CyberButton from './CyberButton';
+import DisruptionButton from './DisruptionButton';
 import TextScramble from './TextScramble';
 import profileImage from '../assets/images/Profile.jpg';
 
@@ -90,19 +90,19 @@ const AboutPreview = () => {
             </div>
             
             <div className="flex flex-wrap gap-4">
-              <CyberButton 
+              <DisruptionButton 
                 color="green" 
                 href="#about"
               >
                 READ MORE
-              </CyberButton>
+              </DisruptionButton>
               
-              <CyberButton 
+              <DisruptionButton 
                 color="blue" 
                 href="#projects"
               >
                 SEE MY WORK
-              </CyberButton>
+              </DisruptionButton>
             </div>
           </motion.div>
         </div>

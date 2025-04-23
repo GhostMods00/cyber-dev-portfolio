@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import GlitchText from '../components/GlitchText';
-import CyberButton from '../components/CyberButton';
+import DisruptionButton from '../components/DisruptionButton';
 import project1Image from '../assets/images/projects/project1.jpg';
 import project2Image from '../assets/images/projects/project2.jpg';
 import project3Image from '../assets/images/projects/project3.jpg';
@@ -188,13 +188,13 @@ const ProjectsPage = () => {
             <p className="text-gray-400 mb-6">
               Interested in working together? Let's build something amazing.
             </p>
-            <CyberButton 
+            <DisruptionButton 
               color="green" 
               href="#contact"
               size="lg"
             >
               CONTACT ME
-            </CyberButton>
+            </DisruptionButton>
           </motion.div>
         </motion.div>
       </div>
@@ -295,7 +295,7 @@ const ProjectCard = ({ project, variants }) => {
           {/* Action buttons with 3D effects */}
           <div className="flex gap-3">
             <motion.div className="flex-1" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <CyberButton 
+              <DisruptionButton 
                 color="blue" 
                 size="xs"
                 href={project.demoLink}
@@ -303,11 +303,11 @@ const ProjectCard = ({ project, variants }) => {
                 glowing={true}
               >
                 DEMO
-              </CyberButton>
+              </DisruptionButton>
             </motion.div>
             
             <motion.div className="flex-1" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <CyberButton 
+              <DisruptionButton 
                 color="green" 
                 size="xs"
                 href={project.codeLink}
@@ -315,7 +315,7 @@ const ProjectCard = ({ project, variants }) => {
                 glowing={true}
               >
                 CODE
-              </CyberButton>
+              </DisruptionButton>
             </motion.div>
           </div>
         </div>

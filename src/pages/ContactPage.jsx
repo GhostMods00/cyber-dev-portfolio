@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
-import CyberButton from '../components/CyberButton';
+import DisruptionButton from '../components/DisruptionButton';
 
 const ContactPage = () => {
   const form = useRef();
@@ -208,13 +208,13 @@ const ContactPage = () => {
                   )}
                   
                   <div className="flex justify-end">
-                    <CyberButton 
+                    <DisruptionButton 
                       color="green" 
                       type="submit"
                       disabled={formStatus.loading}
                     >
                       {formStatus.loading ? 'SENDING...' : 'SEND MESSAGE'}
-                    </CyberButton>
+                    </DisruptionButton>
                   </div>
                 </form>
               </div>
@@ -279,7 +279,7 @@ const ContactPage = () => {
                   <p className="text-gray-400 mb-4 text-sm">
                     Get a comprehensive overview of my skills, experience, and education.
                   </p>
-                  <CyberButton 
+                  <DisruptionButton 
   color="pink" 
   href="/resume.pdf"
   className="w-full text-center"
@@ -287,7 +287,7 @@ const ContactPage = () => {
   onClick={() => console.log("Resume downloaded")}
 >
   DOWNLOAD CV
-</CyberButton>
+</DisruptionButton>
                 </div>
               </div>
             </motion.div>

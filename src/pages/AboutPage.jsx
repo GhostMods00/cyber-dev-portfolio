@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import GlitchText from '../components/GlitchText';
-import CyberButton from '../components/CyberButton';
+import DisruptionButton from '../components/DisruptionButton';
 import TextScramble from '../components/TextScramble';
 import aboutImage from '../assets/images/Aboutme.png';
 import { 
@@ -468,19 +468,19 @@ const AboutPage = () => {
               Want to know more or discuss a potential collaboration?
             </p>
             <div className="flex justify-center gap-4">
-              <CyberButton 
+              <DisruptionButton 
                 color="green" 
                 href="#contact"
               >
                 GET IN TOUCH
-              </CyberButton>
+              </DisruptionButton>
               
-              <CyberButton 
+              <DisruptionButton 
                 color="blue" 
                 href="#projects"
               >
                 VIEW PROJECTS
-              </CyberButton>
+              </DisruptionButton>
             </div>
           </motion.div>
         </motion.div>

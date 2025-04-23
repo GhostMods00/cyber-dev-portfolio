@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import Terminal from './Terminal';
 import GlitchText from './GlitchText';
 import CyberButton from './CyberButton';
+import DisruptionButton from './DisruptionButton';
 import TextScramble from './TextScramble';
 const HeroSection = () => {
   const [terminalComplete, setTerminalComplete] = useState(false);
@@ -106,21 +107,21 @@ const HeroSection = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                <CyberButton 
+                <DisruptionButton 
                   color="green" 
                   size={isMobile ? "md" : "lg"}
                   href="#projects"
                 >
                   VIEW PROJECTS
-                </CyberButton>
+                </DisruptionButton>
                 
-                <CyberButton 
+                <DisruptionButton 
                   color="blue" 
                   size={isMobile ? "md" : "lg"}
                   href="#about"
                 >
                   ABOUT ME
-                </CyberButton>
+                </DisruptionButton>
               </motion.div>
             )}
           </motion.div>

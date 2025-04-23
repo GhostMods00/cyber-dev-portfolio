@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import CyberButton from './CyberButton';
+import DisruptionButton from './DisruptionButton';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -74,13 +74,13 @@ const Navbar = () => {
             </motion.a>
           ))}
           
-          <CyberButton
+          <DisruptionButton
             color="green"
             size="sm"
             href="#contact"
           >
             CONNECT
-          </CyberButton>
+          </DisruptionButton>
         </div>
 
         {/* Mobile Menu Button */}
@@ -129,14 +129,14 @@ const Navbar = () => {
               </motion.a>
             ))}
             <div className="mt-4 px-4 pb-2">
-              <CyberButton
+              <DisruptionButton
                 color="green"
                 size="sm"
                 href="#contact"
                 className="w-full text-center"
               >
                 CONNECT
-              </CyberButton>
+              </DisruptionButton>
             </div>
           </div>
         </motion.div>

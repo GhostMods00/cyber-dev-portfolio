@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const CyberButton = ({ 
+const DisruptionButton = ({ 
   children, 
   onClick, 
   className = "", 
@@ -90,4 +90,4 @@ function getLineColor(color) {
   }
 }
 
-export default CyberButton;
+export default DisruptionButton;

@@ -14,6 +14,7 @@ import AboutPage from './pages/AboutPage';
 import ProjectsPage from './pages/ProjectsPage';
 import ContactPage from './pages/ContactPage';
 
+
 function App() {
   return (
     <div className="App bg-cyber-black min-h-screen crt">
