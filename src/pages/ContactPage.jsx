@@ -280,12 +280,14 @@ const ContactPage = () => {
                     Get a comprehensive overview of my skills, experience, and education.
                   </p>
                   <CyberButton 
-                    color="pink" 
-                    href="/path-to-your-resume.pdf"
-                    className="w-full text-center"
-                  >
-                    DOWNLOAD CV
-                  </CyberButton>
+  color="pink" 
+  href="/resume.pdf"
+  className="w-full text-center"
+  download={true}
+  onClick={() => console.log("Resume downloaded")}
+>
+  DOWNLOAD CV
+</CyberButton>
                 </div>
               </div>
             </motion.div>
