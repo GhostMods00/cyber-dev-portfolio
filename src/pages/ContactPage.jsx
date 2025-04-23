@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import GlitchText from '../components/GlitchText';
+import emailjs from '@emailjs/browser';
 import CyberButton from '../components/CyberButton';
 
 const ContactPage = () => {
+  const form = useRef();
   // Form state
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
+    user_name: '',
+    user_email: '',
     subject: '',
     message: ''
   });
@@ -15,7 +16,8 @@ const ContactPage = () => {
   const [formStatus, setFormStatus] = useState({
     submitted: false,
     success: false,
-    message: ''
+    message: '',
+    loading: false
   });
   
   // Handle form input changes
@@ -32,47 +34,75 @@ const ContactPage = () => {
     e.preventDefault();
     
     // Simple validation
-    if (!formData.name || !formData.email || !formData.message) {
+    if (!formData.user_name || !formData.user_email || !formData.message) {
       setFormStatus({
         submitted: true,
         success: false,
-        message: 'Please fill out all required fields.'
+        message: 'Please fill out all required fields.',
+        loading: false
       });
       return;
     }
     
-    // Simulate form submission
-    // In a real application, you would send this data to a server
-    setTimeout(() => {
-      setFormStatus({
-        submitted: true,
-        success: true,
-        message: 'Message sent successfully! I\'ll respond as soon as possible.'
-      });
-      
-      // Reset form after successful submission
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-      });
-      
-      // Reset status after 5 seconds
-      setTimeout(() => {
+    // Set loading state
+    setFormStatus({
+      ...formStatus,
+      loading: true
+    });
+    
+    //EmailJS service ID, template ID, and public key
+    const serviceId = 'service_qg6xwh9';
+    const templateId = 'template_wfl5807';
+    const publicKey = 'JXZTpcfYlMrn-w6V2';
+    
+    // Send the email
+    emailjs.sendForm(serviceId, templateId, form.current, publicKey)
+      .then((result) => {
+        console.log('Email sent successfully:', result.text);
+        
+        // Success message
         setFormStatus({
-          submitted: false,
-          success: false,
+          submitted: true,
+          success: true,
+          message: 'Message sent successfully! I\'ll respond as soon as possible.',
+          loading: false
+        });
+        
+        // Reset form
+        setFormData({
+          user_name: '',
+          user_email: '',
+          subject: '',
           message: ''
         });
-      }, 5000);
-    }, 1500);
+        
+        // Reset status after 5 seconds
+        setTimeout(() => {
+          setFormStatus({
+            submitted: false,
+            success: false,
+            message: '',
+            loading: false
+          });
+        }, 5000);
+      })
+      .catch((error) => {
+        console.error('Email error:', error.text);
+        
+        // Error message
+        setFormStatus({
+          submitted: true,
+          success: false,
+          message: 'Something went wrong. Please try again later.',
+          loading: false
+        });
+      });
   };
-  
+
   // Social media links
   const socialLinks = [
     { name: 'GitHub', url: 'https://github.com/GhostMods00', icon: 'GitHub' },
-    { name: 'LinkedIn', url: 'https://linkedin.com/in/waleed-zaryab-79571517a', icon: 'LinkedIn' },
+    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/waleed-zaryab-79571517a', icon: 'LinkedIn' },
     { name: 'X', url: 'https://x.com/O_zee9', icon: 'X' },
     { name: 'CodePen', url: 'https://codepen.io/GhostMods00', icon: 'CodePen' }
   ];
@@ -111,32 +141,32 @@ const ContactPage = () => {
               <div className="bg-terminal-black border border-neon-green/30 p-6 rounded-lg shadow-neon-green">
                 <h3 className="text-xl font-mono text-neon-green mb-6">SEND A MESSAGE</h3>
                 
-                <form onSubmit={handleSubmit}>
+                <form ref={form} onSubmit={handleSubmit}>
                   <div className="mb-4">
-                    <label className="block text-gray-400 text-sm font-mono mb-2" htmlFor="name">
+                    <label className="block text-gray-400 text-sm font-mono mb-2" htmlFor="user_name">
                       NAME<span className="text-cyber-pink">*</span>
                     </label>
                     <input
                       className="w-full bg-cyber-black border border-gray-700 rounded py-2 px-3 text-gray-300 focus:outline-none focus:border-neon-green transition-colors duration-300"
                       type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
+                      id="user_name"
+                      name="user_name"
+                      value={formData.user_name}
                       onChange={handleChange}
                       required
                     />
                   </div>
                   
                   <div className="mb-4">
-                    <label className="block text-gray-400 text-sm font-mono mb-2" htmlFor="email">
+                    <label className="block text-gray-400 text-sm font-mono mb-2" htmlFor="user_email">
                       EMAIL<span className="text-cyber-pink">*</span>
                     </label>
                     <input
                       className="w-full bg-cyber-black border border-gray-700 rounded py-2 px-3 text-gray-300 focus:outline-none focus:border-neon-green transition-colors duration-300"
                       type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
+                      id="user_email"
+                      name="user_email"
+                      value={formData.user_email}
                       onChange={handleChange}
                       required
                     />
@@ -181,8 +211,9 @@ const ContactPage = () => {
                     <CyberButton 
                       color="green" 
                       type="submit"
+                      disabled={formStatus.loading}
                     >
-                      SEND MESSAGE
+                      {formStatus.loading ? 'SENDING...' : 'SEND MESSAGE'}
                     </CyberButton>
                   </div>
                 </form>
@@ -199,12 +230,12 @@ const ContactPage = () => {
               <div className="space-y-8">
                 {/* Connect section */}
                 <div className="bg-terminal-black border border-cyber-blue/30 p-6 rounded-lg shadow-neon-blue">
-                  <h3 className="text-xl font-mono text-cyber-blue mb-6">CONTACT CARD</h3>
+                  <h3 className="text-xl font-mono text-cyber-blue mb-6">CONTACT INFO</h3>
                   
                   <div className="space-y-4">
                     <div>
                       <h4 className="text-sm font-mono text-gray-400 mb-1">EMAIL</h4>
-                      <p className="text-gray-300">westendcrew1982@gmail.com</p>
+                      <p className="text-gray-300">westendcrew1982@gmai@example.com</p>
                     </div>
                     
                     <div>
