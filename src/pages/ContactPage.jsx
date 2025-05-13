@@ -235,7 +235,7 @@ const ContactPage = () => {
                   <div className="space-y-4">
                     <div>
                       <h4 className="text-sm font-mono text-gray-400 mb-1">EMAIL</h4>
-                      <p className="text-gray-300">westendcrew1982@gmai@example.com</p>
+                      <p className="text-gray-300">westendcrew1982@gmail.com</p>
                     </div>
                     
                     <div>
