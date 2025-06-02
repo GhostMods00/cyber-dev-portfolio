@@ -207,8 +207,8 @@ const AboutPage = () => {
                   </p>
                   <p>
                     <span className="text-cyber-blue"> * </span>
-                    Hello! I'm a Full Stack Developer who recently completed an intensive coding bootcamp.
-                    With a background in Programming, I bring a unique perspective to development
+                    Hello! I'm a Full Stack Developer
+                    with a background in Programming, I bring a unique perspective to development
                     that combines technical skills with Cyber touch.
                   </p>
                   <p>
