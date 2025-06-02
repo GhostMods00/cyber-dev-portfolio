@@ -78,8 +78,7 @@ const AboutPreview = () => {
                 <span className="text-cyber-blue"># Hello World</span>
               </p>
               <p className="text-gray-300 mb-4">
-                I'm a full-stack developer who recently completed an intensive coding bootcamp. 
-                With a passion for creating secure and innovative applications, I leverage my skills
+                I'm a full-stack developer with a passion for creating secure and innovative applications, I leverage my skills
                 in JavaScript, React, Python, and database management to build digital experiences
                 that make an impact.
               </p>
