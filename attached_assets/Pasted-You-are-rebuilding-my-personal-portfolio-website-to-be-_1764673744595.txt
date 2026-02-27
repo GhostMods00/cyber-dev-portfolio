@@ -1,0 +1,48 @@
+You are rebuilding my personal portfolio website to be a modern, clean, and highly professional version of my current site: https://www.waleezaryab.com
+
+PROJECT GOAL:
+• Keep the same overall idea, structure, and content sections (Hero, About, Experience, Projects, Contact).
+• But completely redesign the UI to look more advanced, sleek, minimal, polished, and premium.
+• No restrictions on color schemes, animations, or styling – use your best judgment.
+• Make it look like a top-tier modern developer portfolio.
+
+STACK REQUIREMENTS:
+• Use Next.js (latest version)
+• Use TypeScript
+• Use Tailwind CSS
+• Use Framer Motion for subtle animations
+• Use modern UI patterns (glassmorphism, gradients, grids, soft shadows)
+• Fully responsive for mobile, tablet, and desktop
+
+DESIGN REQUIREMENTS:
+• Hero section must be bold, clean, and animated. Include my name “Waleed Zaryab”.
+• Smooth scroll animations and transitions between sections.
+• Projects section should have beautiful cards with hover effects and animations.
+• Contact section should be minimal with a working form (use Web3Forms).
+• Add modern navbar with scroll-active highlighting.
+• Add professional typography and consistent spacing.
+• Make everything feel premium and high-end.
+
+CONTENT:
+• Reuse the content and structure from my current site.
+• You may rewrite text in a more professional & strong tone.
+• Keep my name and identity clearly visible.
+
+ASSETS:
+• Add placeholder images or icons where needed.
+• Create a clean favicon and minimal logo using text “WZ”.
+
+DELIVERABLES:
+1. Generate a complete Next.js project with all pages/components.
+2. Make the styling beautiful, cohesive, and elegant.
+3. Add animations using framer-motion to the hero, cards, headings, and transitions.
+4. Ensure the entire project builds successfully.
+5. Provide a final folder structure and code snippets for each file.
+
+TASK INSTRUCTIONS:
+• First, analyse my current website.
+• Then design the new improved UI.
+• Then build the full project.
+• Fix any errors and ensure everything works on local and production builds.
+
+You are free to be creative as long as the portfolio stays clean, modern, and professional.
